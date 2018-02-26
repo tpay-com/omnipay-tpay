@@ -16,7 +16,7 @@ class CompletePurchaseRequest extends AbstractRequest
             $this->getVerificationCode(), $this->getHashType());
 
         $localResources['amount'] = $this->getAmount();
-        $tpayHandler->setAmount($this->getAmount());
+        $tpayHandler->setAmount((float)$this->getAmount());
 
         $localResources['currency'] = $this->getCurrencyNumeric();
         $tpayHandler->setCurrency($this->getCurrencyNumeric());
@@ -33,6 +33,5 @@ class CompletePurchaseRequest extends AbstractRequest
                 $tpayResources['test_mode'] : '');
 
         return $tpayResources;
-
     }
 }

@@ -27,7 +27,7 @@ class PurchaseRequest extends AbstractRequest
         if (!is_null($this->getOrderId())) {
             $data['order_id'] = $this->getOrderId();
         }
-        if (is_null($this->getCardSave())) {
+        if ($this->getCardSave() !== true) {
             $data['onetimer'] = 1;
         }
         $data['language'] = $this->getLanguage();

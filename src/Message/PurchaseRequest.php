@@ -59,7 +59,11 @@ class PurchaseRequest extends AbstractRequest
             throw new Exception('Please set domain request URL');
         }
         $card = $this->getCard();
-        $cardData = $card->getNumber() . '|' . $card->getExpiryMonth() . '/' . $card->getExpiryYear() . '|'
+        $cardExpiry = $card->getExpiryMonth();
+        if (strlen($cardExpiry) === 1) {
+            $cardExpiry = '0' . $cardExpiry;
+        }
+        $cardData = $card->getNumber() . '|' . $cardExpiry . '/' . $card->getExpiryYear() . '|'
             . $card->getCvv() . '|' . $this->getCurrentDomain();
 
         if (!openssl_public_encrypt($cardData, $encrypted, base64_decode($this->getRsaKey()))) {

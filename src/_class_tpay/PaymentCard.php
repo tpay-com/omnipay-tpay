@@ -103,8 +103,8 @@ class PaymentCard extends CardApi
         $sale = 'sale',
         $reason = ''
     ) {
-        $hash = hash($this->cardHashAlg, $sale . $testMode . $saleAuth . $this->orderID . $this->clientAuthCode .
-            $card . $this->currency . $this->amount . $saleDate . $status . $reason . $this->cardVerificationCode);
+        $hash = hash($this->cardHashAlg, $sale . '&' . $testMode . '&' . $saleAuth . '&' . $this->orderID . '&' . $this->clientAuthCode . '&' .
+            $card . '&' . $this->currency . '&' . $this->amount . '&' . $saleDate . '&' . $status . '&' . $reason . '&' . $this->cardVerificationCode);
 
         if ($sign !== $hash) {
             throw new TException('Card payment - invalid checksum.');

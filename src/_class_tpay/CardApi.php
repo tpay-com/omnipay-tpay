@@ -46,7 +46,7 @@ class CardApi extends CardOptions
         if ($this->enablePowUrl) {
             $params['enable_pow_url'] = 1;
         }
-        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('', $params) . $this->cardVerificationCode);
+        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('&', $params) . '&' . $this->cardVerificationCode);
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
         $params = array_merge($params, $this->checkReturnUrls());
         $this->validateConfig(new PaymentTypeCard(), $params);
@@ -91,8 +91,8 @@ class CardApi extends CardOptions
             CardDictionary::ORDERID  => $this->orderID,
             CardDictionary::LANGUAGE => $this->lang,
         );
-        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::PRESALE . $this->clientAuthCode .
-            $saleDescription . $this->amount . $this->currency . $this->orderID . $this->lang .
+        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::PRESALE . '&' . $this->clientAuthCode . '&' .
+            $saleDescription . '&' . $this->amount . '&' . $this->currency . '&' . $this->orderID . '&' . $this->lang . '&' .
             $this->cardVerificationCode);
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
         Util::log('Pre sale params with hash ',
@@ -122,8 +122,8 @@ class CardApi extends CardOptions
             CardDictionary::CLIAUTH  => $this->clientAuthCode,
             CardDictionary::SALEAUTH => $saleAuthCode,
         );
-        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::SALE .
-            $this->clientAuthCode . $saleAuthCode . $this->cardVerificationCode);
+        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::SALE . '&' .
+            $this->clientAuthCode . '&' . $saleAuthCode . '&' . $this->cardVerificationCode);
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
         Util::log('Sale request params', print_r($params, true));
 
@@ -142,7 +142,7 @@ class CardApi extends CardOptions
         $params[CardDictionary::METHOD] = CardDictionary::DEREGISTER;
         $params[CardDictionary::CLIAUTH] = $this->clientAuthCode;
         $params[CardDictionary::LANGUAGE] = $this->lang;
-        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('', $params) . $this->cardVerificationCode);
+        $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('&', $params) . '&' . $this->cardVerificationCode);
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
 
         return $this->requests($this->cardsApiURL . $this->cardApiKey, $params);

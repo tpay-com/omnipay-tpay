@@ -6,21 +6,36 @@ This package requires PHP 5.6+.
 
 ## Installation
 
-Tpay is installed via [Composer](http://getcomposer.org/). To install, simply add it
-to your `composer.json` file:
+Tpay is installed via [Composer](http://getcomposer.org/). 
+
+### Omnipay v2
+
+To install with Omnipay v2, simply add it to your `composer.json` file:
 
 ```json
 {
     "require": {
-        "omnipay/tpay": "~1.0"
+        "omnipay/tpay": "~2.0"
     }
 }
 ```
 
-And run composer to update your dependencies:
+And run composer to update your dependencies.
 
-    $ curl -s http://getcomposer.org/installer | php
-    $ php composer.phar update
+### Omnipay v3
+
+To install with Omnipay v3, simply add it to your `composer.json` file:
+
+```json
+{
+    "require": {
+        "omnipay/tpay": "~3.0"
+    }
+}
+```
+
+And run composer to update your dependencies.
+
 
 ## Basic Usage
 

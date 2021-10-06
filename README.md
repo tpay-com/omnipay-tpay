@@ -1,8 +1,6 @@
 # Omnipay: Tpay
 
-[Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Tpay support for Omnipay.
-This package requires PHP 5.6+.
+This package implements Tpay support for Omnipay v2 and v3.
 
 ## Installation
 
@@ -15,7 +13,7 @@ To install with Omnipay v2, simply add it to your `composer.json` file:
 ```json
 {
     "require": {
-        "omnipay/tpay": "~2.0"
+        "mobtitude/omnipay-tpay": "~2.0"
     }
 }
 ```
@@ -29,7 +27,7 @@ To install with Omnipay v3, simply add it to your `composer.json` file:
 ```json
 {
     "require": {
-        "omnipay/tpay": "~3.0"
+        "mobtitude/omnipay-tpay": "~3.0"
     }
 }
 ```

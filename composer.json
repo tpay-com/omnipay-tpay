@@ -1,7 +1,7 @@
 {
-    "name": "omnipay/tpay",
-    "version": "v1.0.0",
-    "version_normalized": "1.0.0.0",
+    "name": "mobtitude/omnipay-tpay",
+    "version": "v2.0.0",
+    "version_normalized": "2.0.0.0",
     "type": "library",
     "description": "Tpay gateway for Omnipay payment processing library",
     "keywords": [
@@ -24,6 +24,9 @@
         {
             "name": "Tpay contributors",
             "homepage": "https://github.com/"
+        },{
+            "name": "Przemek Szalko",
+            "email": "support@mobtitude.com"
         }
     ],
     "autoload": {

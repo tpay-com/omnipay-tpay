@@ -38,15 +38,23 @@ class CardApi extends CardOptions
             CardDictionary::AMOUNT => $this->amount,
         ));
         $params[CardDictionary::CURRENCY] = $this->currency;
-        $params['order_id'] = $this->orderID;
-        if ($this->oneTimer) {
-            $params['onetimer'] = $this->oneTimer;
+        $optionalParams = [
+            'order_id' => !empty($this->orderID) ? $this->orderID : '',
+            'onetimer' => $this->oneTimer ? : '',
+            CardDictionary::LANGUAGE => $this->lang,
+            'enable_pow_url' => $this->enablePowUrl ? 1 : '',
+        ];
+        if($this->method === 'register_sale')
+        {
+            unset($optionalParams['enable_pow_url']);
         }
-        $params[CardDictionary::LANGUAGE] = $this->lang;
-        if ($this->enablePowUrl) {
-            $params['enable_pow_url'] = 1;
-        }
+        $params = array_merge($params, $optionalParams);
         $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('&', $params) . '&' . $this->cardVerificationCode);
+        foreach ($optionalParams as $optionalParamKey => $optionalParamValue) {
+            if ($optionalParamValue === '') {
+                unset($params[$optionalParamKey]);
+            }
+        }
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
         $params = array_merge($params, $this->checkReturnUrls());
         $this->validateConfig(new PaymentTypeCard(), $params);

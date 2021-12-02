@@ -15,38 +15,46 @@ use Omnipay\Tpay\Dictionaries\CardDictionary;
 class CardApi extends CardOptions
 {
     /**
-     * Prepare for register sale @see $this->registerSale
-     *
-     * @param string $clientName client name
+     * Prepare for register sale @param string $clientName client name
      * @param string $clientEmail client email
      * @param string $saleDescription sale description
      * @return bool|mixed
+     * @see $this->registerSale
+     *
      */
     public function registerSaleMethod(
         $clientName,
         $clientEmail,
         $saleDescription
-    ) {
+    )
+    {
         $params[CardDictionary::METHOD] = $this->method;
         if (!is_null($this->cardData)) {
             $params['card'] = $this->cardData;
         }
         $params = array_merge($params, array(
-            CardDictionary::NAME   => $clientName,
-            CardDictionary::EMAIL  => $clientEmail,
-            CardDictionary::DESC   => $saleDescription,
+            CardDictionary::NAME => $clientName,
+            CardDictionary::EMAIL => $clientEmail,
+            CardDictionary::DESC => $saleDescription,
             CardDictionary::AMOUNT => $this->amount,
         ));
         $params[CardDictionary::CURRENCY] = $this->currency;
-        $params['order_id'] = $this->orderID;
-        if ($this->oneTimer) {
-            $params['onetimer'] = $this->oneTimer;
+        $optionalParams = [
+            'order_id' => !empty($this->orderID) ? $this->orderID : '',
+            'onetimer' => $this->oneTimer ?: '',
+            CardDictionary::LANGUAGE => $this->lang,
+            'enable_pow_url' => $this->enablePowUrl ? 1 : '',
+        ];
+        if ($this->method === 'register_sale') {
+            unset($optionalParams['enable_pow_url']);
         }
-        $params[CardDictionary::LANGUAGE] = $this->lang;
-        if ($this->enablePowUrl) {
-            $params['enable_pow_url'] = 1;
-        }
+        $params = array_merge($params, $optionalParams);
         $params[CardDictionary::SIGN] = hash($this->cardHashAlg, implode('&', $params) . '&' . $this->cardVerificationCode);
+        foreach ($optionalParams as $optionalParamKey => $optionalParamValue) {
+            if ($optionalParamValue === '') {
+                unset($params[$optionalParamKey]);
+            }
+        }
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
         $params = array_merge($params, $this->checkReturnUrls());
         $this->validateConfig(new PaymentTypeCard(), $params);
@@ -81,14 +89,15 @@ class CardApi extends CardOptions
      */
     public function presaleMethod(
         $saleDescription
-    ) {
+    )
+    {
         $params = array(
-            CardDictionary::AMOUNT   => $this->amount,
-            CardDictionary::METHOD   => CardDictionary::PRESALE,
-            CardDictionary::CLIAUTH  => $this->clientAuthCode,
-            CardDictionary::DESC     => $saleDescription,
+            CardDictionary::AMOUNT => $this->amount,
+            CardDictionary::METHOD => CardDictionary::PRESALE,
+            CardDictionary::CLIAUTH => $this->clientAuthCode,
+            CardDictionary::DESC => $saleDescription,
             CardDictionary::CURRENCY => $this->currency,
-            CardDictionary::ORDERID  => $this->orderID,
+            CardDictionary::ORDERID => $this->orderID,
             CardDictionary::LANGUAGE => $this->lang,
         );
         $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::PRESALE . '&' . $this->clientAuthCode . '&' .
@@ -113,13 +122,14 @@ class CardApi extends CardOptions
      */
     public function saleMethod(
         $saleAuthCode
-    ) {
+    )
+    {
         if (strlen($saleAuthCode) !== 40) {
             throw new TException('invalid sale_auth code');
         }
         $params = array(
-            CardDictionary::METHOD   => CardDictionary::SALE,
-            CardDictionary::CLIAUTH  => $this->clientAuthCode,
+            CardDictionary::METHOD => CardDictionary::SALE,
+            CardDictionary::CLIAUTH => $this->clientAuthCode,
             CardDictionary::SALEAUTH => $saleAuthCode,
         );
         $params[CardDictionary::SIGN] = hash($this->cardHashAlg, CardDictionary::SALE . '&' .

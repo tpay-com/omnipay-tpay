@@ -4,8 +4,8 @@
 processing library for PHP 5.3+. This package implements [Tpay](https://tpay.com) support for Omnipay.
 This package requires PHP 5.6+.
 
-[![License](https://img.shields.io/github/license/tpay-com/tpay-magento2-cards.svg)](LICENSE)
-[![CI status](https://github.com/tpay-com/tpay-magento2-cards/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/tpay-com/tpay-magento2-cards/actions)
+[![License](https://img.shields.io/github/license/tpay-com/omnipay-tpay.svg)](LICENSE)
+[![CI status](https://github.com/tpay-com/omnipay-tpay/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/tpay-com/omnipay-tpay/actions)
 
 ## Installation
 

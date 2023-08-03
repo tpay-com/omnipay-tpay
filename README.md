@@ -1,8 +1,11 @@
 # Omnipay: Tpay
 
-[Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements Tpay support for Omnipay.
+[Omnipay](https://github.com/thephpleague/omnipay) is a framework-agnostic, multi-gateway payment
+processing library for PHP 5.3+. This package implements [Tpay](https://tpay.com) support for Omnipay.
 This package requires PHP 5.6+.
+
+[![License](https://img.shields.io/github/license/tpay-com/tpay-magento2-cards.svg)](LICENSE)
+[![CI status](https://github.com/tpay-com/tpay-magento2-cards/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/tpay-com/tpay-magento2-cards/actions)
 
 ## Installation
 
@@ -17,10 +20,12 @@ to your `composer.json` file:
 }
 ```
 
-And run composer to update your dependencies:
+And run Composer to update your dependencies:
 
-    $ curl -s http://getcomposer.org/installer | php
-    $ php composer.phar update
+```console
+    curl -s https://getcomposer.org/installer | php
+    php composer.phar update
+```
 
 ## Basic Usage
 
@@ -31,9 +36,9 @@ repository.
 
 If you are having general issues with Omnipay, we suggest posting on
 [Stack Overflow](http://stackoverflow.com/). Be sure to add the
-[omnipay tag](http://stackoverflow.com/questions/tagged/omnipay) so it can be easily found.
+[omnipay tag](http://stackoverflow.com/questions/tagged/omnipay), so it can be easily found.
 
-If you want to keep up to date with release anouncements, discuss ideas for the project,
+If you want to keep up to date with release announcements, discuss ideas for the project,
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 

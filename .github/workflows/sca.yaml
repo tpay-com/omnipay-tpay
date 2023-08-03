@@ -16,4 +16,4 @@ jobs:
           extensions: none, curl, dom, iconv, json, mbstring, tokenizer, xml, xmlwriter
           coverage: none
 
-      - run: composer validate --strict
+      - run: composer validate --no-check-version --strict

@@ -1,7 +1,5 @@
 {
     "name": "omnipay/tpay",
-    "version": "v1.0.0",
-    "version_normalized": "1.0.0.0",
     "type": "library",
     "description": "Tpay gateway for Omnipay payment processing library",
     "keywords": [

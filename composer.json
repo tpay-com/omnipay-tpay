@@ -1,8 +1,9 @@
 {
     "name": "omnipay/tpay",
-    "version": "v1.0.0",
-    "type": "library",
     "description": "Tpay gateway for Omnipay payment processing library",
+    "license": "MIT",
+    "type": "library",
+    "version": "v1.0.0",
     "keywords": [
         "gateway",
         "merchant",
@@ -13,8 +14,6 @@
         "tpay.com",
         "purchase"
     ],
-    "homepage": "https://github.com/",
-    "license": "MIT",
     "authors": [
         {
             "name": "Tpay.com",
@@ -25,20 +24,22 @@
             "homepage": "https://github.com/"
         }
     ],
-    "autoload": {
-        "psr-4": { "Omnipay\\Tpay\\" : "src/" }
-    },
+    "homepage": "https://github.com/",
     "require": {
-        "omnipay/common": "~2.0"
+        "omnipay/common": "^2.0"
     },
     "require-dev": {
-        "omnipay/tests": "~2.0",
+        "omnipay/tests": "^2.0",
         "php-parallel-lint/php-parallel-lint": "^1.3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omnipay\\Tpay\\": "src/"
+        }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "2.3.x-dev"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }

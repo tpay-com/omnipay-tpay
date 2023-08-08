@@ -1,11 +1,13 @@
 # Omnipay: Tpay
 
-[Omnipay](https://github.com/thephpleague/omnipay) is a framework-agnostic, multi-gateway payment
-processing library for PHP 5.3+. This package implements [Tpay](https://tpay.com) support for Omnipay.
-This package requires PHP 5.6+.
+[Omnipay](https://github.com/thephpleague/omnipay) is a framework-agnostic, multi-gateway
+payment processing library for PHP 5.3+. This package implements [Tpay](https://tpay.com) support for Omnipay.
+It requires PHP 5.6+.
 
 [![License](https://img.shields.io/github/license/tpay-com/omnipay-tpay.svg)](LICENSE)
 [![CI status](https://github.com/tpay-com/omnipay-tpay/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/tpay-com/omnipay-tpay/actions)
+
+[Polish version :poland: wersja polska](./README_PL.md)
 
 ## Installation
 
@@ -21,7 +23,6 @@ to your `composer.json` file:
 ```
 
 And run Composer to update your dependencies:
-
 ```console
     curl -s https://getcomposer.org/installer | php
     php composer.phar update
@@ -29,18 +30,17 @@ And run Composer to update your dependencies:
 
 ## Basic Usage
 
-For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay)
-repository.
+For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
 
 ## Support
 
-If you are having general issues with Omnipay, we suggest posting on
+If you are having general issue with Omnipay, we suggest posting on
 [Stack Overflow](http://stackoverflow.com/). Be sure to add the
-[omnipay tag](http://stackoverflow.com/questions/tagged/omnipay), so it can be easily found.
+[`omnipay` tag](http://stackoverflow.com/questions/tagged/omnipay), so it can be easily found.
 
 If you want to keep up to date with release announcements, discuss ideas for the project,
 or ask more detailed questions, there is also a [mailing list](https://groups.google.com/forum/#!forum/omnipay) which
 you can subscribe to.
 
-If you believe you have found a bug, please report it using the [GitHub issue tracker](https://github.com/tpay-com/omnipay-tpay/issues),
-or better yet, fork the library and submit a pull request.
+If you have found a bug, please report it using the [GitHub issue tracker](https://github.com/tpay-com/omnipay-tpay/issues),
+or [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the library and submit a pull request.

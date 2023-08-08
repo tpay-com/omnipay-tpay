@@ -1,13 +1,6 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 12.06.2017
- * Time: 17:39
- */
-
 namespace Omnipay\Tpay\_class_tpay\Validators;
-
 
 use Omnipay\Tpay\_class_tpay\Utilities\TException;
 use Omnipay\Tpay\Dictionaries\ISO_codes\CurrencyCodesDictionary;
@@ -21,11 +14,12 @@ trait FieldsValidator
      * @param string $currency
      *
      * @throws TException
+     *
      * @return int
      */
     public function validateCardCurrency($currency)
     {
-        if (strlen($currency) !== 3) {
+        if (3 !== strlen($currency)) {
             throw new TException('Currency is invalid.');
         }
 
@@ -58,6 +52,7 @@ trait FieldsValidator
      * @param string $language
      *
      * @throws TException
+     *
      * @return string
      */
     public function validateCardLanguage($language)
@@ -66,22 +61,24 @@ trait FieldsValidator
             throw new TException('Invalid language value type.');
         }
         if (in_array($language, CardPaymentLanguagesDictionary::LANGUAGES)) {
-            return CardPaymentLanguagesDictionary::LANGUAGES[array_search($language,
-                CardPaymentLanguagesDictionary::LANGUAGES)];
-        } elseif (!array_key_exists($language, CardPaymentLanguagesDictionary::LANGUAGES)) {
-            return 'en';
-        } else {
-            return $language;
+            return CardPaymentLanguagesDictionary::LANGUAGES[array_search(
+                $language,
+                CardPaymentLanguagesDictionary::LANGUAGES
+            )];
         }
+        if (!array_key_exists($language, CardPaymentLanguagesDictionary::LANGUAGES)) {
+            return 'en';
+        }
+        return $language;
 
     }
 
     /**
      * Check if variable has expected value
      *
-     * @param mixed $value variable to check
-     * @param array $options available options
-     * @param string $name field name
+     * @param mixed  $value   variable to check
+     * @param array  $options available options
+     * @param string $name    field name
      *
      * @throws TException
      */
@@ -95,11 +92,11 @@ trait FieldsValidator
     /**
      * Check variable max length
      *
-     * @param mixed $value variable to check
-     * @param $validator
-     * @param string $name field name
+     * @param mixed  $value variable to check
+     * @param string $name  field name
      *
      * @throws TException
+     *
      * @internal param int $max max length
      */
     protected function validateMaxLength($value, $validator, $name)
@@ -116,11 +113,11 @@ trait FieldsValidator
     /**
      * Check variable min length
      *
-     * @param mixed $value variable to check
-     * @param $validator
-     * @param string $name field name
+     * @param mixed  $value variable to check
+     * @param string $name  field name
      *
      * @throws TException
+     *
      * @internal param int $min min length
      */
     protected function validateMinLength($value, $validator, $name)
@@ -136,9 +133,10 @@ trait FieldsValidator
 
     /**
      * Check if giver parameter is number
-     * @param $number
-     * @return bool
+     *
      * @throws TException
+     *
+     * @return bool
      */
     protected function validateNumeric($number)
     {
@@ -147,5 +145,4 @@ trait FieldsValidator
         }
         throw new TException(sprintf('Value "%s" is not numeric.', $number));
     }
-
 }

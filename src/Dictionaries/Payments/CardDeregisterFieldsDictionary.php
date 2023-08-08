@@ -1,13 +1,6 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 13.06.2017
- * Time: 17:05
- */
-
 namespace Omnipay\Tpay\Dictionaries\Payments;
-
 
 use Omnipay\Tpay\Dictionaries\FieldsConfigDictionary;
 
@@ -15,86 +8,87 @@ class CardDeregisterFieldsDictionary
 {
     /**
      * List of fields available in card deregistration
+     *
      * @var array
      */
-    const REQUEST_FIELDS = array(
+    const REQUEST_FIELDS = [
         /**
          * client authorization ID, sent if oneTimer option is not set
          * when creating client and client has not been deregistered (himFieldsConfigDictionary or by api)
          */
-        'cli_auth'                       => array(
-            FieldsConfigDictionary::REQUIRED   => true,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(
+        'cli_auth' => [
+            FieldsConfigDictionary::REQUIRED => true,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [
                 FieldsConfigDictionary::STRING,
                 FieldsConfigDictionary::MAXLENGTH_40,
-                FieldsConfigDictionary::MINLENGTH_40
-            ),
-        ),
+                FieldsConfigDictionary::MINLENGTH_40,
+            ],
+        ],
         /**
          * carry value of 1 if account has test mode, otherwise parameter not sent
          */
-        FieldsConfigDictionary::LANGUAGE => array(
-            FieldsConfigDictionary::REQUIRED   => false,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(FieldsConfigDictionary::STRING),
-        ),
+        FieldsConfigDictionary::LANGUAGE => [
+            FieldsConfigDictionary::REQUIRED => false,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING],
+        ],
         /**
          * Message checksum
          */
-        'sign'                           => array(
-            FieldsConfigDictionary::REQUIRED   => true,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(
+        'sign' => [
+            FieldsConfigDictionary::REQUIRED => true,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [
                 FieldsConfigDictionary::STRING,
                 'maxlength_128',
-                FieldsConfigDictionary::MINLENGTH_40
-            ),
-        ),
-    );
+                FieldsConfigDictionary::MINLENGTH_40,
+            ],
+        ],
+    ];
 
-    const RESPONSE_FIELDS = array(
+    const RESPONSE_FIELDS = [
         /**
          * client authorization ID, sent if oneTimer option is not set
          * when creating client and client has not been deregistered (himFieldsConfigDictionary or by api)
          */
-        'cli_auth'                        => array(
-            FieldsConfigDictionary::REQUIRED   => true,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(
+        'cli_auth' => [
+            FieldsConfigDictionary::REQUIRED => true,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [
                 FieldsConfigDictionary::STRING,
                 FieldsConfigDictionary::MAXLENGTH_40,
-                FieldsConfigDictionary::MINLENGTH_40
-            ),
-        ),
+                FieldsConfigDictionary::MINLENGTH_40,
+            ],
+        ],
         /**
          * carry value of 1 if account has test mode, otherwise parameter not sent
          */
-        FieldsConfigDictionary::TEST_MODE => array(
-            FieldsConfigDictionary::REQUIRED   => false,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::INT,
-            FieldsConfigDictionary::VALIDATION => array(FieldsConfigDictionary::INT),
-        ),
+        FieldsConfigDictionary::TEST_MODE => [
+            FieldsConfigDictionary::REQUIRED => false,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::INT,
+            FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::INT],
+        ],
         /**
          * Date of accounting/deregistering
          */
-        'date'                            => array(
-            FieldsConfigDictionary::REQUIRED   => true,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(FieldsConfigDictionary::STRING),
-            FieldsConfigDictionary::FILTER     => 'date'
-        ),
+        'date' => [
+            FieldsConfigDictionary::REQUIRED => true,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING],
+            FieldsConfigDictionary::FILTER => 'date',
+        ],
         /**
          * Message checksum
          */
-        'sign'                            => array(
-            FieldsConfigDictionary::REQUIRED   => true,
-            FieldsConfigDictionary::TYPE       => FieldsConfigDictionary::STRING,
-            FieldsConfigDictionary::VALIDATION => array(
+        'sign' => [
+            FieldsConfigDictionary::REQUIRED => true,
+            FieldsConfigDictionary::TYPE => FieldsConfigDictionary::STRING,
+            FieldsConfigDictionary::VALIDATION => [
                 FieldsConfigDictionary::STRING,
                 'maxlength_128',
-                FieldsConfigDictionary::MINLENGTH_40
-            ),
-        ),
-    );
+                FieldsConfigDictionary::MINLENGTH_40,
+            ],
+        ],
+    ];
 }

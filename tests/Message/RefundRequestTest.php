@@ -2,7 +2,6 @@
 
 namespace Omnipay\Tpay\Message;
 
-use Omnipay\Common\CreditCard;
 use Omnipay\Tests\TestCase;
 
 class RefundRequestTest extends TestCase
@@ -18,21 +17,21 @@ class RefundRequestTest extends TestCase
 
         $this->request = new RefundRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request->initialize(
-            array(
-                'amount'   => '10.00',
+            [
+                'amount' => '10.00',
                 'currency' => 'USD',
                 'hashType' => 'sha1',
-            )
+            ]
         );
     }
 
     public function testGetData()
     {
-        $data = array(
-            'amount'   => '10.00',
+        $data = [
+            'amount' => '10.00',
             'currency' => 'USD',
             'hashType' => 'sha1',
-        );
+        ];
 
         $this->request = new RefundRequest($this->getHttpClient(), $this->getHttpRequest());
         $this->request
@@ -51,5 +50,4 @@ class RefundRequestTest extends TestCase
         $this->assertSame('t59c28295aeb071b0cf6471b24f727f6456998de', $data['sale_auth']);
 
     }
-
 }

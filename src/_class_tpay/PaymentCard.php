@@ -1,15 +1,10 @@
 <?php
 
-/*
- * Created by tpay.com
- */
-
 namespace Omnipay\Tpay\_class_tpay;
 
 use Omnipay\Tpay\_class_tpay\Utilities\TException;
 use Omnipay\Tpay\_class_tpay\Utilities\Util;
 use Omnipay\Tpay\Dictionaries\CardDictionary;
-
 
 /**
  * Class PaymentCard
@@ -19,8 +14,6 @@ use Omnipay\Tpay\Dictionaries\CardDictionary;
  *  - client is redirected to card payment panel
  *  - card gate form is rendered
  *  - when user has saved card data only button is shown
- *
- * @package tpay
  */
 class PaymentCard extends CardApi
 {
@@ -29,7 +22,6 @@ class PaymentCard extends CardApi
      * - card by panel
      * - card direct sale
      * - for saved cards
-     *
      */
     public function __construct()
     {
@@ -54,8 +46,10 @@ class PaymentCard extends CardApi
             $clientEmail,
             $orderDesc
         );
-        Util::log('card ' . !is_null($cardData) ? 'secure sale response' : 'register sale response',
-            print_r($response, true));
+        Util::log(
+            'card '.!is_null($cardData) ? 'secure sale response' : 'register sale response',
+            print_r($response, true)
+        );
 
         return $response;
     }
@@ -65,7 +59,6 @@ class PaymentCard extends CardApi
      *
      * @param string $saleAuth client sale sign
      *
-     * @param $cliAuth
      * @return bool|mixed
      */
     public function sale($saleAuth, $cliAuth)
@@ -91,6 +84,7 @@ class PaymentCard extends CardApi
      * @param string $testMode
      * @param string $sale
      * @param string $reason
+     *
      * @throws TException
      */
     public function validateCardSign(
@@ -103,8 +97,8 @@ class PaymentCard extends CardApi
         $sale = 'sale',
         $reason = ''
     ) {
-        $hash = hash($this->cardHashAlg, $sale . $testMode . $saleAuth . $this->orderID . $this->clientAuthCode .
-            $card . $this->currency . $this->amount . $saleDate . $status . $reason . $this->cardVerificationCode);
+        $hash = hash($this->cardHashAlg, $sale.$testMode.$saleAuth.$this->orderID.$this->clientAuthCode
+            .$card.$this->currency.$this->amount.$saleDate.$status.$reason.$this->cardVerificationCode);
 
         if ($sign !== $hash) {
             throw new TException('Card payment - invalid checksum.');

@@ -1,9 +1,5 @@
 <?php
 
-/*
- * Created by tpay.com
- */
-
 namespace Omnipay\Tpay\_class_tpay\Utilities;
 
 /**
@@ -13,35 +9,32 @@ namespace Omnipay\Tpay\_class_tpay\Utilities;
  *  - parsing template files
  *  - log library operations
  *  - handle POST array
- *
- * @package tpay
  */
 class Util
 {
     const REMOTE_ADDR = 'REMOTE_ADDRESS';
 
     static $lang = 'en';
-
     static $path = null;
 
     /**
      * Save text to log file with details
      *
      * @param string $title action name
-     * @param string $text text to save
+     * @param string $text  text to save
      */
     public static function log($title, $text)
     {
         $text = (string)$text;
-        $logFilePath = dirname(__FILE__) . '/../../log';
+        $logFilePath = dirname(__FILE__).'/../../log';
 
         $ip = (isset($_SERVER[static::REMOTE_ADDR])) ? $_SERVER[static::REMOTE_ADDR] : '';
 
         $logText = "\n===========================";
-        $logText .= "\n" . $title;
+        $logText .= "\n".$title;
         $logText .= "\n===========================";
-        $logText .= "\n" . date('Y-m-d H:i:s');
-        $logText .= "\nip: " . $ip;
+        $logText .= "\n".date('Y-m-d H:i:s');
+        $logText .= "\nip: ".$ip;
         $logText .= "\n";
         $logText .= $text;
         $logText .= "\n\n";
@@ -59,9 +52,9 @@ class Util
     public static function logLine($text)
     {
         $text = (string)$text;
-        $logFilePath = dirname(__FILE__) . '/../../log';
+        $logFilePath = dirname(__FILE__).'/../../log';
         if (file_exists($logFilePath) && is_writable($logFilePath)) {
-            file_put_contents($logFilePath, "\n" . $text, FILE_APPEND);
+            file_put_contents($logFilePath, "\n".$text, FILE_APPEND);
         }
     }
 
@@ -72,7 +65,6 @@ class Util
      * @param string $name
      * @param string $type variable type
      *
-     * @return mixed
      * @throws TException
      */
     public static function post($name, $type)
@@ -81,13 +73,13 @@ class Util
             return false;
         }
         $val = $_POST[$name];
-        if ($type === 'int') {
+        if ('int' === $type) {
             $val = (int)$val;
-        } elseif ($type === 'float') {
+        } elseif ('float' === $type) {
             $val = (float)$val;
-        } elseif ($type === 'string') {
+        } elseif ('string' === $type) {
             $val = (string)$val;
-        } elseif ($type === 'array') {
+        } elseif ('array' === $type) {
             $val = (array)$val;
         } else {
             throw new TException('Undefined $_POST variable type');
@@ -106,6 +98,7 @@ class Util
      * Set custom library path
      *
      * @param string $path
+     *
      * @return $this
      */
     public function setPath($path)

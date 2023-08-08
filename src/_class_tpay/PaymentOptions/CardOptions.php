@@ -31,11 +31,11 @@ class CardOptions extends ObjectsHelper
 
     public function setClientToken($token)
     {
-        if (!is_string($token) || strlen($token) !== 40) {
+        if (!is_string($token) || 40 !== strlen($token)) {
             throw new TException('invalid token');
-        } else {
-            $this->clientAuthCode = $token;
         }
+        $this->clientAuthCode = $token;
+
         return $this;
     }
 
@@ -46,7 +46,6 @@ class CardOptions extends ObjectsHelper
     }
 
     /**
-     * @param $orderID
      * @return $this
      */
     public function setOrderID($orderID)

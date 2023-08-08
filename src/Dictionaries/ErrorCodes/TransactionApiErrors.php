@@ -1,15 +1,10 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 09.06.2017
- * Time: 17:56
- */
 namespace Omnipay\Tpay\Dictionaries\ErrorCodes;
 
 class TransactionApiErrors
 {
-    const ERROR_CODES = array(
+    const ERROR_CODES = [
         'ERR44' => 'Invalid transaction id',
         'ERR51' => 'Can\'t create transaction for this channel',
         'ERR52' => 'Error create a transaction, try again later',
@@ -22,11 +17,11 @@ class TransactionApiErrors
         'ERR31' => 'Access disabled',
         'ERR32' => 'Access forbidden',
         'ERR96' => 'Invalid transaction id or can\'t make refund',
-        'ERR4'  => 'Nie został przesłany plik o rozszerzeniu csv',
-        'ERR6'  => 'Niepoprawna suma kontrolna (sign)',
-        'ERR7'  => 'Niepoprawny format linii',
-        'ERR8'  => 'Niepoprawny format numeru rachunku',
-        'ERR9'  => 'Nazwa odbiorcy nie może być pusta',
+        'ERR4' => 'Nie został przesłany plik o rozszerzeniu csv',
+        'ERR6' => 'Niepoprawna suma kontrolna (sign)',
+        'ERR7' => 'Niepoprawny format linii',
+        'ERR8' => 'Niepoprawny format numeru rachunku',
+        'ERR9' => 'Nazwa odbiorcy nie może być pusta',
         'ERR10' => 'Nazwa odbiorcy 1 jest za długa - maks. 35 znaków',
         'ERR11' => 'Nazwa odbiorcy 2 jest za długa - maks. 35 znaków',
         'ERR12' => 'Nazwa odbiorcy 3 jest za długa - maks. 35 znaków',
@@ -42,5 +37,5 @@ class TransactionApiErrors
         'ERR22' => 'Błąd przy autoryzacji paczki',
         'ERR23' => 'Za mało środków do autoryzacji paczki',
         'ERR24' => 'Paczka została już autoryzowana',
-    );
+    ];
 }

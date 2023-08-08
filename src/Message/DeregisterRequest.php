@@ -20,5 +20,4 @@ class DeregisterRequest extends AbstractRequest
         return $data;
 
     }
-
 }

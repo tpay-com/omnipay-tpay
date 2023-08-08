@@ -20,5 +20,4 @@ class CaptureRequest extends AbstractRequest
         return $data;
 
     }
-
 }

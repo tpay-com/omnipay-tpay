@@ -1,7 +1,4 @@
 <?php
-/**
- * Tpay Abstract Request
- */
 
 namespace Omnipay\Tpay\Message;
 
@@ -10,8 +7,7 @@ use Omnipay\Common\Message\AbstractRequest as OmnipayAbstractRequest;
 abstract class AbstractRequest extends OmnipayAbstractRequest
 {
     protected $apiEndpoint = 'https://secure.tpay.com/api/cards/';
-
-    protected $supportedLanguages = array('pl', 'en', 'fr', 'es', 'it', 'ru');
+    protected $supportedLanguages = ['pl', 'en', 'fr', 'es', 'it', 'ru'];
 
     public function getApiKey()
     {
@@ -75,6 +71,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
     /**
      * @param $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
+     *
      * @return OmnipayAbstractRequest
      */
     public function setLanguage($value)
@@ -109,6 +106,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
     /**
      * @param array $data
+     *
      * @return Response
      */
     public function sendData($data)
@@ -146,11 +144,12 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
     protected function getEndpoint()
     {
-        return $this->apiEndpoint . $this->getApiKey();
+        return $this->apiEndpoint.$this->getApiKey();
     }
 
     /**
      * @param array $data
+     *
      * @return string
      */
     public function getSign($data)
@@ -165,10 +164,8 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
 
     }
 
-
     protected function createResponse($data)
     {
         return $this->response = new Response($this, $data);
     }
-
 }

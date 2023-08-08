@@ -46,6 +46,5 @@ class AuthorizeRequestTest extends TestCase
         $this->assertSame('123', $data['order_id']);
         $this->assertSame('Payment for order X', $data['desc']);
         $this->assertSame('t59c2810d59285e3e0ee9d1f1eda1c2f4c554e24', $data['cli_auth']);
-
     }
 }

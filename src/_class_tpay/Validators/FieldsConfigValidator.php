@@ -71,7 +71,6 @@ trait FieldsConfigValidator
         $this->validateFields($name, $value, $fieldConfig);
         return (isset($fieldConfig[FieldsConfigDictionary::FILTER])) ? $this->filterValues($value, $fieldConfig, $name)
             : $value;
-
     }
 
     /**

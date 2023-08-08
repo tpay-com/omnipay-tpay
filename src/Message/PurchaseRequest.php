@@ -41,7 +41,6 @@ class PurchaseRequest extends AbstractRequest
         $data['api_password'] = $this->getApiPassword();
 
         return $data;
-
     }
 
     private function isCardSupported()
@@ -70,6 +69,5 @@ class PurchaseRequest extends AbstractRequest
         }
 
         return base64_encode($encrypted);
-
     }
 }

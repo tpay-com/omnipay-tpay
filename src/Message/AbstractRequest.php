@@ -161,7 +161,6 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         $string .= $this->getVerificationCode();
 
         return hash($this->getHashType(), $string);
-
     }
 
     protected function createResponse($data)

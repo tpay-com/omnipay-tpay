@@ -43,7 +43,6 @@ trait FieldsValidator
                 throw new TException('Currency variable type not supported.');
         }
         return $currency;
-
     }
 
     /**
@@ -70,7 +69,6 @@ trait FieldsValidator
             return 'en';
         }
         return $language;
-
     }
 
     /**

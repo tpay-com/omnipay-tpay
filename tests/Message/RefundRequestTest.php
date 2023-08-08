@@ -48,6 +48,5 @@ class RefundRequestTest extends TestCase
         $this->assertSame('t59c2810d59285e3e0ee9d1f1eda1c2f4c554e24', $data['cli_auth']);
         $this->assertSame('Refund for order X', $data['desc']);
         $this->assertSame('t59c28295aeb071b0cf6471b24f727f6456998de', $data['sale_auth']);
-
     }
 }

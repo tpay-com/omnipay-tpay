@@ -18,6 +18,5 @@ class DeregisterRequest extends AbstractRequest
         $data['api_password'] = $this->getApiPassword();
 
         return $data;
-
     }
 }

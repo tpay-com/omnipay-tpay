@@ -69,6 +69,5 @@ class CardNotificationHandler extends PaymentCard
             return $response;
         }
         throw new TException('Incorrect payment');
-
     }
 }

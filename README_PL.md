@@ -34,7 +34,7 @@ Ogólne instrukcje użytkowania można znaleźć w głównym repozytorium [Omnip
 
 ## Wsparcie
 
-Jeśli masz ogólny problemy z Omnipay, sugerujemy opublikowanie go na
+Jeśli masz ogólny problem z Omnipay, sugerujemy opublikowanie go na
 [Stack Overflow](http://stackoverflow.com/). Pamiętaj, aby dodać
 [tag `omnipay`](http://stackoverflow.com/questions/tagged/omnipay), dzięki czemu będzie można go łatwo znaleźć.
 

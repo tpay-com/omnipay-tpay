@@ -3,8 +3,6 @@
 namespace Omnipay\Tpay\_class_tpay\Utilities;
 
 /**
- * Class Util
- *
  * Utility class which helps with:
  *  - parsing template files
  *  - log library operations

@@ -70,7 +70,7 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
     }
 
     /**
-     * @param $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
+     * @param mixed $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
      *
      * @return OmnipayAbstractRequest
      */

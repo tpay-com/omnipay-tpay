@@ -8,8 +8,6 @@ class SzkwalFieldsDictionary
 {
     /**
      * List of supported fields for szkwal payment request
-     *
-     * @var array
      */
     const REQUEST_FIELDS = [
         /**
@@ -89,8 +87,6 @@ class SzkwalFieldsDictionary
 
     /**
      * List of fields available in szkwal payment response
-     *
-     * @var array
      */
     const RESPONSE_FIELDS = [
         /**

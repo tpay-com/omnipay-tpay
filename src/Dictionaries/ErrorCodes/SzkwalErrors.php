@@ -6,8 +6,6 @@ class SzkwalErrors
 {
     /**
      * The list of possible errors returning from tpay servive
-     *
-     * @var array
      */
     const ERROR_CODES = [
         'ERR01' => 'authorization failed',

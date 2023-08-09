@@ -100,7 +100,7 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
     }
 
     /**
-     * @param $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
+     * @param mixed $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
      *
      * @return $this
      */

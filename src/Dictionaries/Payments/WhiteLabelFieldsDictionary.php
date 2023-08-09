@@ -8,8 +8,6 @@ class WhiteLabelFieldsDictionary
 {
     /**
      * List of supported fields for white label payment request
-     *
-     * @var array
      */
     const REQUEST_FIELDS = [
         /**

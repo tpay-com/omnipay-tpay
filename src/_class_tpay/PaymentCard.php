@@ -7,8 +7,6 @@ use Omnipay\Tpay\_class_tpay\Utilities\Util;
 use Omnipay\Tpay\Dictionaries\CardDictionary;
 
 /**
- * Class PaymentCard
- *
  * Class handles credit card payments through "Card API".
  * Depending on the chosen method:
  *  - client is redirected to card payment panel

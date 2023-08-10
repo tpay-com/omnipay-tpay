@@ -1,11 +1,5 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 12.06.2017
- * Time: 17:49
- */
-
 namespace Omnipay\Tpay\_class_tpay\Utilities;
 
 use Omnipay\Tpay\_class_tpay\Validators\FieldsConfigValidator;
@@ -17,79 +11,98 @@ class ObjectsHelper
 
     /**
      * Api key
+     *
      * @var string
      */
     protected $trApiKey = '[TR_API_KEY]';
 
     /**
      * Api pass
+     *
      * @var string
      */
     protected $trApiPass = '[TR_API_PASS]';
 
     /**
      * Merchant id
+     *
      * @var int
      */
     protected $merchantId = '[MERCHANT_ID]';
 
     /**
      * Merchant secret
+     *
      * @var string
      */
     protected $merchantSecret = '[MERCHANT_SECRET]';
 
     /**
      * Card API key
+     *
      * @var string
      */
     protected $cardApiKey = '[CARD_API_KEY]';
 
     /**
      * Card API password
+     *
      * @var string
      */
     protected $cardApiPass = '[CARD_API_PASSWORD]';
 
     /**
      * Card API code
+     *
      * @var string
      */
     protected $cardVerificationCode = '[CARD_API_CODE]';
 
     /**
      * Card RSA key
+     *
      * @var string
      */
     protected $cardKeyRSA = '[CARD_RSA_KEY]';
 
     /**
      * Card hash algorithm
+     *
      * @var string
      */
     protected $cardHashAlg = '[CARD_HASH_ALG]';
+
     /**
      * API login
+     *
      * @var string
      */
     protected $szkwalApiLogin = '[SZKWAL_LOGIN]';
+
     /**
      * API password
+     *
      * @var string
      */
     protected $szkwalApiPass = '[SZKWAL_API_PASSWORD]';
+
     /**
      * API hash
+     *
      * @var string
      */
     protected $szkwalApiHash = '[SZKWAL_API_HASH]';
+
     /**
      * API partner unique address
+     *
      * @var string
      */
     protected $szkwalPartnerUniqueAddress = '[SZKWAL_PARTNER_ADDRESS]';
+
     /**
      * API title format
+     *
      * @var string
      */
     protected $szkwalTitleFormat = '[SZKWAL_TITLE_FORMAT]';
@@ -157,8 +170,8 @@ class ObjectsHelper
         return (new ServerValidator(
             $this->validateServerIP,
             $this->validateForwardedIP,
-            $this->secureIP)
+            $this->secureIP
+        )
         )->isValid();
     }
-
 }

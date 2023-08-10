@@ -1,35 +1,29 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 13.06.2017
- * Time: 17:05
- */
-
 namespace Omnipay\Tpay\Dictionaries\ISO_codes;
 
 class CurrencyCodesDictionary
 {
-    const CODES = array(
+    const CODES = [
         784 => 'AED',
-        41  => 'AMD',
+        41 => 'AMD',
         532 => 'ANG',
         973 => 'AOA',
-        26  => 'ARS',
-        30  => 'AUD',
+        26 => 'ARS',
+        30 => 'AUD',
         533 => 'AWG',
         944 => 'AZN',
         977 => 'BAM',
-        42  => 'BBD',
-        40  => 'BDT',
+        42 => 'BBD',
+        40 => 'BDT',
         975 => 'BGN',
-        4   => 'BH',
+        4 => 'BH',
         108 => 'BIF',
-        48  => 'BMD',
-        6   => 'BO',
+        48 => 'BMD',
+        6 => 'BO',
         986 => 'BRL',
-        36  => 'BSD',
-        58  => 'BWP',
+        36 => 'BSD',
+        58 => 'BWP',
         933 => 'BYN',
         124 => 'CAD',
         976 => 'CDF',
@@ -42,7 +36,7 @@ class CurrencyCodesDictionary
         203 => 'CZK',
         208 => 'DKK',
         214 => 'DOP',
-        10  => 'DZD',
+        10 => 'DZD',
         818 => 'EGP',
         230 => 'ETB',
         978 => 'EUR',
@@ -129,7 +123,6 @@ class CurrencyCodesDictionary
         953 => 'XPF',
         886 => 'YER',
         710 => 'ZAR',
-        967 => 'ZMW'
-    );
-
+        967 => 'ZMW',
+    ];
 }

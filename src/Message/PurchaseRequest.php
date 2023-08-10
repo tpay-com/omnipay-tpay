@@ -11,7 +11,6 @@ use Omnipay\Common\Exception\InvalidCreditCardException;
  */
 class PurchaseRequest extends AbstractRequest
 {
-
     public function getData()
     {
         $this->validate('amount', 'currency');
@@ -19,7 +18,7 @@ class PurchaseRequest extends AbstractRequest
 
         $data['method'] = 'securesale';
         $data['card'] = $this->hashCardData();
-        $data['name'] = $this->getCard()->getBillingFirstName() . ' ' . $this->getCard()->getBillingLastName();
+        $data['name'] = $this->getCard()->getBillingFirstName().' '.$this->getCard()->getBillingLastName();
         $data['email'] = $this->getCard()->getEmail();
         $data['desc'] = $this->getDescription();
         $data['amount'] = $this->getAmount();
@@ -27,7 +26,7 @@ class PurchaseRequest extends AbstractRequest
         if (!is_null($this->getOrderId())) {
             $data['order_id'] = $this->getOrderId();
         }
-        if ($this->getCardSave() !== true) {
+        if (true !== $this->getCardSave()) {
             $data['onetimer'] = 1;
         }
         $data['language'] = $this->getLanguage();
@@ -42,14 +41,13 @@ class PurchaseRequest extends AbstractRequest
         $data['api_password'] = $this->getApiPassword();
 
         return $data;
-
     }
 
     private function isCardSupported()
     {
         $brand = $this->getCard()->getBrand();
-        if (!($brand === 'maestro' || $brand === 'visa' || $brand === 'mastercard')) {
-            throw new InvalidCreditCardException('This credit card is not supported' . $brand);
+        if (!('maestro' === $brand || 'visa' === $brand || 'mastercard' === $brand)) {
+            throw new InvalidCreditCardException('This credit card is not supported'.$brand);
         }
     }
 
@@ -60,18 +58,16 @@ class PurchaseRequest extends AbstractRequest
         }
         $card = $this->getCard();
         $cardExpiry = $card->getExpiryMonth();
-        if (strlen($cardExpiry) === 1) {
-            $cardExpiry = '0' . $cardExpiry;
+        if (1 === strlen($cardExpiry)) {
+            $cardExpiry = '0'.$cardExpiry;
         }
-        $cardData = $card->getNumber() . '|' . $cardExpiry . '/' . $card->getExpiryYear() . '|'
-            . $card->getCvv() . '|' . $this->getCurrentDomain();
+        $cardData = $card->getNumber().'|'.$cardExpiry.'/'.$card->getExpiryYear().'|'
+            .$card->getCvv().'|'.$this->getCurrentDomain();
 
         if (!openssl_public_encrypt($cardData, $encrypted, base64_decode($this->getRsaKey()))) {
             throw new InvalidArgumentException('Unable to encrypt card data.');
         }
 
         return base64_encode($encrypted);
-
     }
-
 }

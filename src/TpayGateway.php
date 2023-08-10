@@ -14,7 +14,7 @@ use Omnipay\Tpay\Message\RefundRequest;
 
 class TpayGateway extends AbstractGateway implements GatewayInterface
 {
-    protected $supportedLanguages = array('pl', 'en', 'fr', 'es', 'it', 'ru');
+    protected $supportedLanguages = ['pl', 'en', 'fr', 'es', 'it', 'ru'];
 
     public function getName()
     {
@@ -23,7 +23,7 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
 
     public function getDefaultParameters()
     {
-        return array_merge(parent::getDefaultParameters(), array(
+        return array_merge(parent::getDefaultParameters(), [
             'apiKey' => '',
             'apiPassword' => '',
             'verificationCode' => '',
@@ -31,7 +31,7 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
             'hashType' => 'sha1',
             'currentDomain' => 'http://localhost',
             'language' => 'en',
-        ));
+        ]);
     }
 
     public function getApiKey()
@@ -100,50 +100,50 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
     }
 
     /**
-     * @param $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
+     * @param mixed $value - can be 'pl', 'en', 'fr', 'es', 'it', 'ru'
+     *
      * @return $this
      */
     public function setLanguage($value)
     {
         return $this->setParameter('language', $value);
     }
-    public function authorize(array $parameters = array())
+
+    public function authorize(array $parameters = [])
     {
         return $this->createRequest(AuthorizeRequest::class, $parameters);
     }
 
-    public function completeAuthorize(array $parameters = array())
+    public function completeAuthorize(array $parameters = [])
     {
         throw new BadMethodCallException('This method is not supported.');
     }
 
-    public function purchase(array $parameters = array())
+    public function purchase(array $parameters = [])
     {
         return $this->createRequest(PurchaseRequest::class, $parameters);
     }
 
     /**
-     * @param array $parameters
      * @return CompletePurchaseRequest
      */
-    public function completePurchase(array $parameters = array())
+    public function completePurchase(array $parameters = [])
     {
         return $this->createRequest(CompletePurchaseRequest::class, $parameters);
     }
 
-    public function capture(array $parameters = array())
+    public function capture(array $parameters = [])
     {
         return $this->createRequest(CaptureRequest::class, $parameters);
     }
 
-    public function deleteCard(array $parameters = array())
+    public function deleteCard(array $parameters = [])
     {
         return $this->createRequest(DeregisterRequest::class, $parameters);
     }
 
-    public function refund(array $parameters = array())
+    public function refund(array $parameters = [])
     {
         return $this->createRequest(RefundRequest::class, $parameters);
     }
-
 }

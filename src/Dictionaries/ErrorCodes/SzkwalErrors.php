@@ -1,20 +1,13 @@
 <?php
 
-/*
- * Created by tpay.com.
- * Date: 16.06.2017
- * Time: 11:23
- */
-
 namespace Omnipay\Tpay\Dictionaries\ErrorCodes;
 
 class SzkwalErrors
 {
     /**
      * The list of possible errors returning from tpay servive
-     * @var array
      */
-    const ERROR_CODES = array(
+    const ERROR_CODES = [
         'ERR01' => 'authorization failed',
         'ERR02' => 'required input empty',
         'ERR03' => 'incorrect title format',
@@ -31,5 +24,5 @@ class SzkwalErrors
         'ERR14' => 'Insufficient funds',
         'ERR15' => 'Incorrect client account number',
         'ERR99' => 'other error',
-    );
+    ];
 }

@@ -6,6 +6,7 @@ Wymaga ona PHP 5.6+.
 
 [![Licencja](https://img.shields.io/github/license/tpay-com/omnipay-tpay.svg?label=licencja)](LICENSE)
 [![CI status](https://github.com/tpay-com/omnipay-tpay/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/tpay-com/omnipay-tpay/actions)
+[![Pokrycie typami](https://shepherd.dev/github/tpay-com/omnipay-tpay/coverage.svg)](https://shepherd.dev/github/tpay-com/omnipay-tpay)
 
 [English version :gb: wersja angielska](./README.md)
 

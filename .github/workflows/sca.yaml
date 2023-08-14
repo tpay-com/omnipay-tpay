@@ -16,6 +16,8 @@ jobs:
           extensions: none, curl, dom, mbstring, simplexml, tokenizer
           coverage: none
 
+      - run: composer update --no-progress --classmap-authoritative
+
       - run: composer validate --no-check-version --strict
 
       - working-directory: .dev-tools
@@ -26,6 +28,9 @@ jobs:
 
       - working-directory: .dev-tools
         run: ./vendor/bin/php-cs-fixer fix -vvv --diff --dry-run
+
+      - working-directory: .dev-tools
+        run: ./vendor/bin/phpstan
 
       - working-directory: .dev-tools
         run: ./vendor/bin/psalm --no-progress --shepherd

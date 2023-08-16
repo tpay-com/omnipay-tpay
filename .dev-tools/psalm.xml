@@ -11,6 +11,7 @@
         <directory name='../' />
         <ignoreFiles>
             <directory name='./' />
+            <directory name='../vendor/' />
         </ignoreFiles>
     </projectFiles>
 

@@ -26,15 +26,20 @@
     ],
     "homepage": "https://github.com/",
     "require": {
-        "omnipay/common": "^2.0"
+        "omnipay/common": "^2.0 || ^3.0"
     },
     "require-dev": {
-        "omnipay/tests": "^2.0",
+        "omnipay/tests": "^2.0 || ^3.0 || ^4.0",
         "php-parallel-lint/php-parallel-lint": "^1.3.2"
     },
     "autoload": {
         "psr-4": {
             "Omnipay\\Tpay\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": false
         }
     },
     "extra": {

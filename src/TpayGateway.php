@@ -3,7 +3,6 @@
 namespace Omnipay\Tpay;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\Common\Exception\BadMethodCallException;
 use Omnipay\Common\GatewayInterface;
 use Omnipay\Tpay\Message\AuthorizeRequest;
 use Omnipay\Tpay\Message\CaptureRequest;
@@ -112,11 +111,6 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
     public function authorize(array $parameters = [])
     {
         return $this->createRequest(AuthorizeRequest::class, $parameters);
-    }
-
-    public function completeAuthorize(array $parameters = [])
-    {
-        throw new BadMethodCallException('This method is not supported.');
     }
 
     public function purchase(array $parameters = [])

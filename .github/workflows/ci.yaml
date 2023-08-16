@@ -29,7 +29,7 @@ jobs:
       - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-version }}
-          extensions: none, curl, dom, json, mbstring, tokenizer, xmlwriter
+          extensions: none, curl, dom, json, mbstring, simplexml, tokenizer, xml, xmlwriter
           coverage: none
 
       - id: composer-cache
@@ -44,3 +44,11 @@ jobs:
       - run: composer update --no-progress --classmap-authoritative
 
       - run: ./vendor/bin/parallel-lint . --exclude vendor
+
+      - if: ${{ matrix.php-version >= 7.1 }}
+        run: |
+          mkdir .tmp
+          composer require --dev --working-dir=.tmp friendsofphp/php-cs-fixer
+          PHP_CS_FIXER_IGNORE_ENV=1 ./.tmp/vendor/bin/php-cs-fixer fix -vvv --allow-risky=yes --rules=void_return ./tests
+
+      - run: ./vendor/bin/phpunit

@@ -12,8 +12,5 @@ class PaymentTypeWhiteLabel implements PaymentTypesInterface
         return WhiteLabelFieldsDictionary::REQUEST_FIELDS;
     }
 
-    public function getResponseFields()
-    {
-        return null;
-    }
+    public function getResponseFields() {}
 }

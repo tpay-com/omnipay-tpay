@@ -59,18 +59,6 @@ class CardApi extends CardOptions
         return $this->requests($this->cardsApiURL.$this->cardApiKey, $params);
     }
 
-    private function checkReturnUrls()
-    {
-        $params = [];
-        if (filter_var($this->powUrl, FILTER_VALIDATE_URL)) {
-            $params['pow_url'] = $this->powUrl;
-        }
-        if (filter_var($this->powUrlBlad, FILTER_VALIDATE_URL)) {
-            $params['pow_url_blad'] = $this->powUrlBlad;
-        }
-        return $params;
-    }
-
     /**
      * Method used to create new sale for payment on demand.
      * It can be called after receiving notification with cli_auth (see communication schema in register_sale method).
@@ -154,5 +142,18 @@ class CardApi extends CardOptions
         $params[CardDictionary::APIPASS] = $this->cardApiPass;
 
         return $this->requests($this->cardsApiURL.$this->cardApiKey, $params);
+    }
+
+    private function checkReturnUrls()
+    {
+        $params = [];
+        if (filter_var($this->powUrl, FILTER_VALIDATE_URL)) {
+            $params['pow_url'] = $this->powUrl;
+        }
+        if (filter_var($this->powUrlBlad, FILTER_VALIDATE_URL)) {
+            $params['pow_url_blad'] = $this->powUrlBlad;
+        }
+
+        return $params;
     }
 }

@@ -20,7 +20,7 @@ class CompletePurchaseRequest extends AbstractRequest
         );
 
         $localResources['amount'] = $this->getAmount();
-        $tpayHandler->setAmount((float)$this->getAmount());
+        $tpayHandler->setAmount((float) $this->getAmount());
 
         $localResources['currency'] = $this->getCurrencyNumeric();
         $tpayHandler->setCurrency($this->getCurrencyNumeric());

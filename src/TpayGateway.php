@@ -118,9 +118,7 @@ class TpayGateway extends AbstractGateway implements GatewayInterface
         return $this->createRequest(PurchaseRequest::class, $parameters);
     }
 
-    /**
-     * @return CompletePurchaseRequest
-     */
+    /** @return CompletePurchaseRequest */
     public function completePurchase(array $parameters = [])
     {
         return $this->createRequest(CompletePurchaseRequest::class, $parameters);

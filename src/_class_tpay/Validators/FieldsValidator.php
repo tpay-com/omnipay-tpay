@@ -27,8 +27,8 @@ trait FieldsValidator
             case 'string':
                 if (in_array($currency, CurrencyCodesDictionary::CODES)) {
                     $currency = array_search($currency, CurrencyCodesDictionary::CODES);
-                } elseif (array_key_exists((int)$currency, CurrencyCodesDictionary::CODES)) {
-                    $currency = (int)$currency;
+                } elseif (array_key_exists((int) $currency, CurrencyCodesDictionary::CODES)) {
+                    $currency = (int) $currency;
                 } else {
                     throw new TException('Currency is not supported.');
                 }
@@ -42,6 +42,7 @@ trait FieldsValidator
             default:
                 throw new TException('Currency variable type not supported.');
         }
+
         return $currency;
     }
 
@@ -68,6 +69,7 @@ trait FieldsValidator
         if (!array_key_exists($language, CardPaymentLanguagesDictionary::LANGUAGES)) {
             return 'en';
         }
+
         return $language;
     }
 
@@ -90,8 +92,9 @@ trait FieldsValidator
     /**
      * Check variable max length
      *
-     * @param mixed  $value variable to check
-     * @param string $name  field name
+     * @param mixed  $value     variable to check
+     * @param mixed  $validator
+     * @param string $name      field name
      *
      * @throws TException
      *
@@ -100,7 +103,7 @@ trait FieldsValidator
     protected function validateMaxLength($value, $validator, $name)
     {
         $max = explode('_', $validator);
-        $max = (int)$max[1];
+        $max = (int) $max[1];
         if (strlen($value) > $max) {
             throw new TException(
                 sprintf('Value of field "%s" is too long. Max %d characters', $name, $max)
@@ -111,8 +114,9 @@ trait FieldsValidator
     /**
      * Check variable min length
      *
-     * @param mixed  $value variable to check
-     * @param string $name  field name
+     * @param mixed  $value     variable to check
+     * @param mixed  $validator
+     * @param string $name      field name
      *
      * @throws TException
      *
@@ -121,7 +125,7 @@ trait FieldsValidator
     protected function validateMinLength($value, $validator, $name)
     {
         $min = explode('_', $validator);
-        $min = (int)$min[1];
+        $min = (int) $min[1];
         if (strlen($value) < $min) {
             throw new TException(
                 sprintf('Value of field "%s" is too short. Min %d characters', $name, $min)
@@ -131,6 +135,8 @@ trait FieldsValidator
 
     /**
      * Check if giver parameter is number
+     *
+     * @param mixed $number
      *
      * @throws TException
      *

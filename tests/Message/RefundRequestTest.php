@@ -6,9 +6,7 @@ use Omnipay\Tests\TestCase;
 
 class RefundRequestTest extends TestCase
 {
-    /**
-     * @var RefundRequest
-     */
+    /** @var RefundRequest */
     private $request;
 
     public function setUp()

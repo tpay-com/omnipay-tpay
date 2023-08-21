@@ -6,9 +6,7 @@ use Omnipay\Tests\TestCase;
 
 class DeregisterRequestTest extends TestCase
 {
-    /**
-     * @var DeregisterRequest
-     */
+    /** @var DeregisterRequest */
     private $request;
 
     public function setUp()

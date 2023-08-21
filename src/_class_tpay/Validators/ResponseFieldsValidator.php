@@ -36,16 +36,16 @@ trait ResponseFieldsValidator
 
                 switch ($field[FieldsConfigDictionary::TYPE]) {
                     case FieldsConfigDictionary::STRING:
-                        $val = (string)$val;
+                        $val = (string) $val;
                         break;
                     case FieldsConfigDictionary::INT:
-                        $val = (int)$val;
+                        $val = (int) $val;
                         break;
                     case FieldsConfigDictionary::FLOAT:
-                        $val = (float)$val;
+                        $val = (float) $val;
                         break;
                     case FieldsConfigDictionary::ARR:
-                        $val = (array)$val;
+                        $val = (array) $val;
                         break;
                     default:
                         throw new TException(sprintf('unknown field type in getResponse - field name= %s', $fieldName));

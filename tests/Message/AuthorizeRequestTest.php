@@ -6,9 +6,7 @@ use Omnipay\Tests\TestCase;
 
 class AuthorizeRequestTest extends TestCase
 {
-    /**
-     * @var AuthorizeRequest
-     */
+    /** @var AuthorizeRequest */
     private $request;
 
     public function setUp()
@@ -35,8 +33,8 @@ class AuthorizeRequestTest extends TestCase
                 'hashType' => 'sha1',
             ]
         )->setOrderId('123')
-         ->setToken('t59c2810d59285e3e0ee9d1f1eda1c2f4c554e24')
-         ->setDescription('Payment for order X');
+            ->setToken('t59c2810d59285e3e0ee9d1f1eda1c2f4c554e24')
+            ->setDescription('Payment for order X');
 
         $data = $this->request->getData();
 

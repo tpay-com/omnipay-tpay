@@ -31,7 +31,7 @@ class CardOptions extends ObjectsHelper
     protected $powUrlBlad = '';
 
     /** @var null|string */
-    protected $cardData = null;
+    protected $cardData;
 
     /** @var string */
     protected $method = 'register_sale';
@@ -63,6 +63,7 @@ class CardOptions extends ObjectsHelper
     public function setCurrency($currency)
     {
         $this->currency = $this->validateCardCurrency($currency);
+
         return $this;
     }
 
@@ -74,6 +75,7 @@ class CardOptions extends ObjectsHelper
     public function setOrderID($orderID)
     {
         $this->orderID = $orderID;
+
         return $this;
     }
 
@@ -85,6 +87,7 @@ class CardOptions extends ObjectsHelper
     public function setOneTimer($oneTimer)
     {
         $this->oneTimer = $oneTimer;
+
         return $this;
     }
 
@@ -96,6 +99,7 @@ class CardOptions extends ObjectsHelper
     public function setLanguage($lang)
     {
         $this->lang = $this->validateCardLanguage($lang);
+
         return $this;
     }
 
@@ -107,6 +111,7 @@ class CardOptions extends ObjectsHelper
     public function setEnablePowUrl($enablePowUrl)
     {
         $this->enablePowUrl = $enablePowUrl;
+
         return $this;
     }
 
@@ -120,6 +125,7 @@ class CardOptions extends ObjectsHelper
     {
         $this->powUrl = $successUrl;
         $this->powUrlBlad = $errorUrl;
+
         return $this;
     }
 
@@ -131,6 +137,7 @@ class CardOptions extends ObjectsHelper
     public function setCardData($data)
     {
         $this->cardData = $data;
+
         return $this;
     }
 
@@ -142,6 +149,7 @@ class CardOptions extends ObjectsHelper
     public function setMethod($method)
     {
         $this->method = $method;
+
         return $this;
     }
 
@@ -154,6 +162,7 @@ class CardOptions extends ObjectsHelper
     {
         $this->validateNumeric($amount);
         $this->amount = $amount;
+
         return $this;
     }
 }

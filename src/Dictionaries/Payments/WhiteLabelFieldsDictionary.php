@@ -6,35 +6,25 @@ use Omnipay\Tpay\Dictionaries\FieldsConfigDictionary;
 
 class WhiteLabelFieldsDictionary
 {
-    /**
-     * List of supported fields for white label payment request
-     */
+    /** List of supported fields for white label payment request */
     const REQUEST_FIELDS = [
-        /**
-         * User api login
-         */
+        // User api login
         'api_login' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING],
         ],
-        /**
-         * User api password
-         */
+        // User api password
         'api_password' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING],
         ],
-        /**
-         * Client name
-         */
+        // Client name
         'cli_name' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING, 'maxlength_96'],
             FieldsConfigDictionary::FILTER => FieldsConfigDictionary::TEXT,
         ],
-        /**
-         * Client email
-         */
+        // Client email
         'cli_email' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [
@@ -43,31 +33,23 @@ class WhiteLabelFieldsDictionary
             ],
             FieldsConfigDictionary::FILTER => 'mail',
         ],
-        /**
-         * Client phone
-         */
+        // Client phone
         'cli_phone' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::MAXLENGTH_32],
             FieldsConfigDictionary::FILTER => FieldsConfigDictionary::PHONE,
         ],
-        /**
-         * Order id (payment title) the customer will be paying with; according to agreed format;
-         */
+        // Order id (payment title) the customer will be paying with; according to agreed format;
         'order' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::STRING],
         ],
-        /**
-         * Transaction amount
-         */
+        // Transaction amount
         FieldsConfigDictionary::AMOUNT => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [FieldsConfigDictionary::FLOAT],
         ],
-        /**
-         * Message checksum
-         */
+        // Message checksum
         'hash' => [
             FieldsConfigDictionary::REQUIRED => true,
             FieldsConfigDictionary::VALIDATION => [

@@ -16,6 +16,7 @@ class TException extends Exception
         Util::log('TException', $message."\n\n".$this->getTraceAsString());
 
         $this->message = $code.' : '.$message;
+
         return $code.' : '.$message;
     }
 }

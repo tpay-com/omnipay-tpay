@@ -142,11 +142,6 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         return $this->setParameter('sale_auth', $value);
     }
 
-    protected function getEndpoint()
-    {
-        return $this->apiEndpoint.$this->getApiKey();
-    }
-
     /**
      * @param array $data
      *
@@ -161,6 +156,11 @@ abstract class AbstractRequest extends OmnipayAbstractRequest
         $string .= $this->getVerificationCode();
 
         return hash($this->getHashType(), $string);
+    }
+
+    protected function getEndpoint()
+    {
+        return $this->apiEndpoint.$this->getApiKey();
     }
 
     protected function createResponse($data)

@@ -6,9 +6,7 @@ use Omnipay\Tests\TestCase;
 
 class CaptureRequestTest extends TestCase
 {
-    /**
-     * @var CaptureRequest
-     */
+    /** @var CaptureRequest */
     private $request;
 
     public function setUp()

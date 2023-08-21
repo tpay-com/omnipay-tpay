@@ -71,6 +71,7 @@ class CardNotificationHandler extends PaymentCard
                 $resp[CardDictionary::CLIAUTH] = $response[CardDictionary::CLIAUTH];
                 $this->setClientToken($resp[CardDictionary::CLIAUTH]);
             }
+
             return $resp;
         }
         if (CardDictionary::DEREGISTER === $notificationType) {

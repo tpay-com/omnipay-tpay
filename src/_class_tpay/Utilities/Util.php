@@ -16,7 +16,7 @@ class Util
     static $lang = 'en';
 
     /** @var null|string */
-    static $path = null;
+    static $path;
 
     /**
      * Save text to log file with details
@@ -26,7 +26,7 @@ class Util
      */
     public static function log($title, $text)
     {
-        $text = (string)$text;
+        $text = (string) $text;
         $logFilePath = dirname(__FILE__).'/../../log';
 
         $ip = (isset($_SERVER[static::REMOTE_ADDR])) ? $_SERVER[static::REMOTE_ADDR] : '';
@@ -52,7 +52,7 @@ class Util
      */
     public static function logLine($text)
     {
-        $text = (string)$text;
+        $text = (string) $text;
         $logFilePath = dirname(__FILE__).'/../../log';
         if (file_exists($logFilePath) && is_writable($logFilePath)) {
             file_put_contents($logFilePath, "\n".$text, FILE_APPEND);
@@ -75,13 +75,13 @@ class Util
         }
         $val = $_POST[$name];
         if ('int' === $type) {
-            $val = (int)$val;
+            $val = (int) $val;
         } elseif ('float' === $type) {
-            $val = (float)$val;
+            $val = (float) $val;
         } elseif ('string' === $type) {
-            $val = (string)$val;
+            $val = (string) $val;
         } elseif ('array' === $type) {
-            $val = (array)$val;
+            $val = (array) $val;
         } else {
             throw new TException('Undefined $_POST variable type');
         }
@@ -97,6 +97,7 @@ class Util
     public function setLanguage($lang)
     {
         static::$lang = $lang;
+
         return $this;
     }
 
@@ -110,6 +111,7 @@ class Util
     public function setPath($path)
     {
         static::$path = $path;
+
         return $this;
     }
 }

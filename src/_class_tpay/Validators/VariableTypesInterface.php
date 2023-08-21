@@ -5,9 +5,8 @@ namespace Omnipay\Tpay\_class_tpay\Validators;
 interface VariableTypesInterface
 {
     /**
+     * @param mixed  $value
      * @param string $name
-     *
-     * @return void
      */
     public function validateType($value, $name);
 }

@@ -4,9 +4,7 @@ namespace Omnipay\Tpay\Dictionaries\ErrorCodes;
 
 class SzkwalErrors
 {
-    /**
-     * The list of possible errors returning from tpay servive
-     */
+    /** The list of possible errors returning from tpay servive */
     const ERROR_CODES = [
         'ERR01' => 'authorization failed',
         'ERR02' => 'required input empty',

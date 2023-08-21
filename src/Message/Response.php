@@ -23,7 +23,7 @@ class Response extends AbstractResponse implements ResponseInterface
 
     public function isSuccessful()
     {
-        return isset($this->data['result']) && 1 === (int)$this->data['result'];
+        return isset($this->data['result']) && 1 === (int) $this->data['result'];
     }
 
     public function isRedirect()

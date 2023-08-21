@@ -69,11 +69,15 @@ trait FieldsConfigValidator
         }
 
         $this->validateFields($name, $value, $fieldConfig);
+
         return (isset($fieldConfig[FieldsConfigDictionary::FILTER])) ? $this->filterValues($value, $fieldConfig, $name)
             : $value;
     }
 
     /**
+     * @param mixed $name
+     * @param mixed $requestFields
+     *
      * @throws TException
      */
     private function checkFieldName($name, $requestFields)
@@ -87,6 +91,10 @@ trait FieldsConfigValidator
     }
 
     /**
+     * @param mixed $name
+     * @param mixed $value
+     * @param mixed $fieldConfig
+     *
      * @throws TException
      */
     private function validateFields($name, $value, $fieldConfig)
@@ -111,6 +119,7 @@ trait FieldsConfigValidator
      *
      * @param string $value
      * @param array  $fieldConfig
+     * @param mixed  $name
      *
      * @throws TException
      *
@@ -133,6 +142,7 @@ trait FieldsConfigValidator
                 Util::log('Variable Warning!', 'Unsupported signs has been trimmed from '
                     .$value.' to '.$filteredValue.' in field '.$name);
             }
+
             return $filteredValue;
         }
         if ((('mail' === $filterName) && !filter_var($value, FILTER_VALIDATE_EMAIL))

@@ -7,6 +7,10 @@ use Omnipay\Tpay\Dictionaries\FieldsConfigDictionary;
 
 class VariableTypesValidator
 {
+    /**
+     * @param string $type
+     * @param string $name
+     */
     public function __construct($type, $value, $name)
     {
         $this->validateType($type, $value, $name);

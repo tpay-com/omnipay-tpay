@@ -12,7 +12,7 @@ trait ResponseFieldsValidator
      * Check all variables required in response
      * Parse variables to valid types
      *
-     * @param object $paymentType
+     * @param PaymentTypesInterface $paymentType
      *
      * @throws TException
      *
@@ -31,7 +31,9 @@ trait ResponseFieldsValidator
                     $missed[] = $fieldName;
                 }
             } else {
+                /** @var string $val */
                 $val = Util::post($fieldName, FieldsConfigDictionary::STRING);
+
                 switch ($field[FieldsConfigDictionary::TYPE]) {
                     case FieldsConfigDictionary::STRING:
                         $val = (string)$val;

@@ -11,6 +11,12 @@ use Omnipay\Tpay\Dictionaries\CardDictionary;
 
 class CardNotificationHandler extends PaymentCard
 {
+    /**
+     * @param string $apiKey
+     * @param string $apiPassword
+     * @param string $verificationCode
+     * @param string $hashType
+     */
     public function __construct($apiKey, $apiPassword, $verificationCode, $hashType)
     {
         $this->cardApiKey = $apiKey;
@@ -33,7 +39,9 @@ class CardNotificationHandler extends PaymentCard
     {
         Util::log('Card notification', "POST params: \n".print_r($_POST, true));
 
+        /** @var string $notificationType */
         $notificationType = Util::post('type', CardDictionary::STRING);
+
         if (CardDictionary::SALE === $notificationType) {
             $response = $this->getResponse(new PaymentTypeCard());
         } elseif (CardDictionary::DEREGISTER === $notificationType) {

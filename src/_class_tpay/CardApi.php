@@ -24,7 +24,7 @@ class CardApi extends CardOptions
         $clientEmail,
         $saleDescription
     ) {
-        $params[CardDictionary::METHOD] = $this->method;
+        $params = [CardDictionary::METHOD => $this->method];
         if (!is_null($this->cardData)) {
             $params['card'] = $this->cardData;
         }

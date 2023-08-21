@@ -20,8 +20,8 @@ trait FieldsConfigValidator
     /**
      * FieldsConfigValidator payment config
      *
-     * @param object $paymentType
-     * @param array  $config
+     * @param PaymentTypesInterface $paymentType
+     * @param array                 $config
      *
      * @throws TException
      *
@@ -49,10 +49,10 @@ trait FieldsConfigValidator
     /**
      * Check one field form
      *
-     * @param object $paymentType payment type
-     * @param string $name        field name
-     * @param mixed  $value       field value
-     * @param bool   $notResp     is it not response value
+     * @param PaymentTypesInterface $paymentType payment type
+     * @param string                $name        field name
+     * @param mixed                 $value       field value
+     * @param bool                  $notResp     is it not response value
      *
      * @return bool
      */

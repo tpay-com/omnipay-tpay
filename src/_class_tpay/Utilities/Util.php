@@ -12,7 +12,10 @@ class Util
 {
     const REMOTE_ADDR = 'REMOTE_ADDRESS';
 
+    /** @var string */
     static $lang = 'en';
+
+    /** @var null|string */
     static $path = null;
 
     /**
@@ -86,6 +89,11 @@ class Util
         return $val;
     }
 
+    /**
+     * @param string $lang
+     *
+     * @return $this
+     */
     public function setLanguage($lang)
     {
         static::$lang = $lang;

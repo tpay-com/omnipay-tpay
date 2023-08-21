@@ -18,10 +18,15 @@ class ServerValidator
     private $validateServerIP;
 
     /**
-     * @var bool
+     * @var array<string>
      */
     private $secureIP;
 
+    /**
+     * @param bool          $validateServerIP
+     * @param bool          $validateForwardedIP
+     * @param array<string> $secureIP
+     */
     public function __construct($validateServerIP, $validateForwardedIP, array $secureIP)
     {
         $this->validateServerIP = $validateServerIP;
@@ -66,6 +71,8 @@ class ServerValidator
         if (isset($_SERVER[$name])) {
             return $_SERVER[$name];
         }
+
+        return null;
     }
 
     /**

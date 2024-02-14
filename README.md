@@ -1,5 +1,7 @@
 # Omnipay: Tpay
 
+This repository is abandoned. Please use [This repo](https://github.com/tpay-com/omnipay) https://github.com/tpay-com/omnipay
+
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework-agnostic, multi-gateway
 payment processing library for PHP 5.3+. This package implements [Tpay](https://tpay.com) support for Omnipay.
 It requires PHP 5.6+.
